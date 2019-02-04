@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+	<title>Responsive module with sass & flexbox</title>
+	<meta charset='UTF-8'>
+	<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'/>
+
+	<!--NOTE: Run NPM install for gulp packages, run gulp tasks to compile stylesheet-->
+	<link rel='stylesheet' href='build/styles.css'/>
+</head>
+<body>
+
+<div class='page'>
+	<!--dummy content - testing layout overflow-->
+	<div class='section content-top'>
+		<h1>section content</h1>
+	</div>
+
+	<!--dummy content - testing layout overflow-->
+	<div class='section content'></div>
+
+	<!--responsive module-->
+	<section>
+		<ul class='display-flex'>
+			<li class='square red' data-initial-color='#e04336'>
+				<button type='button' class='btn red'>Button</button>
+			</li>
+
+			<li class='square green' data-initial-color='#4c9b4e'>
+				<button type='button' class='btn green'>Button</button>
+			</li>
+
+			<li class='square blue' data-initial-color='#0078a6'>
+				<button type='button' class='btn blue'>Button</button>
+			</li>
+
+			<li class='square white' data-initial-color='#EAEDF0'>
+				<button type='button' class='btn white'>Button</button>
+			</li>
+		</ul>
+	</section>
+
+	<!--dummy content - testing layout overflow-->
+	<div class='section content-bottom'>
+		<h1>section content</h1>
+	</div>
+</div>
+
+<!--NOTE: Run NPM install, Gulp tasks for latest library-->
+<script src='build/jquery-latest.min.js'></script>
+<script>
+	$(document).ready(function () {
+
+		$('li.square button').click(function () {
+
+			var $initialColor = $(this).parent().data('initial-color');
+			var $li = $('li.white');
+
+			if ($(this).parent().hasClass('white')) {
+				$li.siblings().children().removeAttr('style')
+			}
+			else {
+				//Set the elements color via the style attribute overriding any classes we have
+				$li.siblings().children().css({'background': $initialColor});
+			}
+		});
+	});
+</script>
+</body>
+</html>
