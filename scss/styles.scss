@@ -1,0 +1,184 @@
+@import "_flexbox.scss";
+$color-dark-grey: #333333;
+$color-white: #FFF;
+$color-white2: #EAEDF0;
+$square-red: #F44336;
+$square-blue: #008CBA;
+$square-green: #4CAF50;
+$square-white: $color-white;
+$button-red: #E04336;
+$button-green: #4C9B4E;
+$button-blue: #0078A6;
+$button-white: $color-white2;
+$square-width: 230px;
+$page-max-width: 980px;
+
+/*set box model to zero*/
+*{
+  margin:     0;
+  padding:    0;
+  box-sizing: border-box;
+  }
+/*Center content*/
+.page{
+  display:         flex;
+  flex-wrap:       wrap;
+  justify-content: center;
+  }
+section, .section{
+  width: 100%;
+  }
+.section{
+  display:         flex;
+  justify-content: center;
+  align-items:     center;
+  }
+.content{
+  background-color: #EAEDF0;
+  min-height:       300px;
+  }
+/*Dummy content - testing layout overflow for responsive flow*/
+.content-top, .content-bottom{
+  background-color: #444444;
+  color:            #555555;
+  height:           300px;
+  }
+.display-flex{
+  @include flexbox();
+  @include flex-direction(row);
+  @include flex-wrap(wrap);
+  @include justify-content(space-between); // flex-start | flex-end | center | space-between | space-around
+  @include align-content(center); // flex-start | flex-end | center | space-between | space-around | stretch
+  }
+.display-flex{
+  width:       100%;
+  padding:     7px;
+  margin:      0;
+  list-style:  none;
+  align-items: center;
+  }
+.square{
+  background:  $color-dark-grey;
+  border:      1px solid $color-dark-grey;
+  padding:     5px;
+  width:       $square-width;
+  height:      $square-width;
+  margin:      auto;
+  line-height: 150px;
+  text-align:  center;
+
+  @include flex-basis($square-width);
+  &.red{
+	background-color: $square-red;
+	border:           1px solid $button-red;
+	}
+  &.green{
+	background-color: $square-green;
+	border:           1px solid $button-green;
+	}
+  &.blue{
+	background-color: $square-blue;
+	border:           1px solid $button-blue;
+	}
+  &.white{
+	background-color: $square-white;
+	border:           1px solid $color-white2;
+	}
+  }
+.btn{
+  background-color:            $color-dark-grey;
+  border:                      none;
+  color:                       $button-white;
+  padding:                     15px 32px;
+  text-align:                  center;
+  -webkit-transition-duration: 0.4s;
+  transition-duration:         0.4s;
+  margin:                      16px 0;
+  text-decoration:             none;
+  font-size:                   16px;
+  cursor:                      pointer;
+  &.green{
+	border-radius:    3px;
+	background-color: $button-green;
+	color:            $button-white;
+	&:hover{
+	  background-color: $button-white;
+	  border:           1px solid $color-dark-grey;
+	  color:            $color-dark-grey;
+	  }
+	}
+  &.blue{
+	border-radius:    3px;
+	background-color: $button-blue;
+	color:            $button-white;
+	&:hover{
+	  background-color: $button-white;
+	  border:           1px solid $color-dark-grey;
+	  color:            $color-dark-grey;
+	  }
+	}
+  &.red{
+	border-radius:    3px;
+	background-color: $button-red;
+	color:            $button-white;
+	&:hover{
+	  background-color: $button-white;
+	  border:           1px solid $color-dark-grey;
+	  color:            $color-dark-grey;
+	  }
+	}
+  &.white{
+	border-radius:    3px;
+	background-color: $color-white2;
+	color:            $color-dark-grey;
+	&:hover{
+	  background-color: $color-white;
+	  color:            $color-dark-grey;
+	  border:           1px solid $color-dark-grey;
+	  }
+	}
+  }
+/*Mobile -  When it’s less than 400px*/
+@media only screen and (max-width: 400px){
+  body{
+	background-color: $color-white;
+	}
+  .square:not(:last-child){
+	margin-bottom: 20px;
+	}
+
+  .display-flex{
+	width:          100%;
+	padding:        20px;
+	flex-direction: column;
+	}
+  }
+@media only screen and (min-width: 401px) and (max-width: 741px){
+
+  .square:not(:last-child){
+	margin-bottom: 20px;
+	}
+
+  }
+/* Tablet - When it’s between 401px and 960px */
+@media only screen and (min-width: 401px) and (max-width: 980px){
+  body{
+	background-color: $color-white;
+	}
+  .square:not(:last-child){
+	margin-bottom: 7px;
+	}
+  }
+/*Desktop - When it’s greater than 980px wide*/
+@media only screen and (min-width: 981px){
+  body{
+	background-color: $color-white;
+	}
+  .page{
+	width:  $page-max-width;
+	margin: 0 auto;
+	}
+  .square:not(:last-child){
+	margin: auto;
+	}
+  }

@@ -1,0 +1,164 @@
+@charset "UTF-8";
+/*set box model to zero*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+/*Center content*/
+.page {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; }
+
+section, .section {
+  width: 100%; }
+
+.section {
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.content {
+  background-color: #EAEDF0;
+  min-height: 300px; }
+
+/*Dummy content - testing layout overflow for responsive flow*/
+.content-top, .content-bottom {
+  background-color: #444444;
+  color: #555555;
+  height: 300px; }
+
+.display-flex {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  -moz-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-flex-wrap: wrap;
+  -moz-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-justify-content: space-between;
+  -moz-justify-content: space-between;
+  -ms-justify-content: space-between;
+  justify-content: space-between;
+  -ms-flex-pack: space-between;
+  -webkit-align-content: center;
+  -moz-align-content: center;
+  -ms-align-content: center;
+  align-content: center; }
+
+.display-flex {
+  width: 100%;
+  padding: 7px;
+  margin: 0;
+  list-style: none;
+  align-items: center; }
+
+.square {
+  background: #333333;
+  border: 1px solid #333333;
+  padding: 5px;
+  width: 230px;
+  height: 230px;
+  margin: auto;
+  line-height: 150px;
+  text-align: center;
+  -webkit-flex-basis: 230px;
+  -moz-flex-basis: 230px;
+  -ms-flex-basis: 230px;
+  flex-basis: 230px; }
+  .square.red {
+    background-color: #F44336;
+    border: 1px solid #E04336; }
+  .square.green {
+    background-color: #4CAF50;
+    border: 1px solid #4C9B4E; }
+  .square.blue {
+    background-color: #008CBA;
+    border: 1px solid #0078A6; }
+  .square.white {
+    background-color: #FFF;
+    border: 1px solid #EAEDF0; }
+
+.btn {
+  background-color: #333333;
+  border: none;
+  color: #EAEDF0;
+  padding: 15px 32px;
+  text-align: center;
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+  margin: 16px 0;
+  text-decoration: none;
+  font-size: 16px;
+  cursor: pointer; }
+  .btn.green {
+    border-radius: 3px;
+    background-color: #4C9B4E;
+    color: #EAEDF0; }
+    .btn.green:hover {
+      background-color: #EAEDF0;
+      border: 1px solid #333333;
+      color: #333333; }
+  .btn.blue {
+    border-radius: 3px;
+    background-color: #0078A6;
+    color: #EAEDF0; }
+    .btn.blue:hover {
+      background-color: #EAEDF0;
+      border: 1px solid #333333;
+      color: #333333; }
+  .btn.red {
+    border-radius: 3px;
+    background-color: #E04336;
+    color: #EAEDF0; }
+    .btn.red:hover {
+      background-color: #EAEDF0;
+      border: 1px solid #333333;
+      color: #333333; }
+  .btn.white {
+    border-radius: 3px;
+    background-color: #EAEDF0;
+    color: #333333; }
+    .btn.white:hover {
+      background-color: #FFF;
+      color: #333333;
+      border: 1px solid #333333; }
+
+/*Mobile -  When it’s less than 400px*/
+@media only screen and (max-width: 400px) {
+  body {
+    background-color: #FFF; }
+  .square:not(:last-child) {
+    margin-bottom: 20px; }
+  .display-flex {
+    width: 100%;
+    padding: 20px;
+    flex-direction: column; } }
+
+@media only screen and (min-width: 401px) and (max-width: 741px) {
+  .square:not(:last-child) {
+    margin-bottom: 20px; } }
+
+/* Tablet - When it’s between 401px and 960px */
+@media only screen and (min-width: 401px) and (max-width: 980px) {
+  body {
+    background-color: #FFF; }
+  .square:not(:last-child) {
+    margin-bottom: 7px; } }
+
+/*Desktop - When it’s greater than 980px wide*/
+@media only screen and (min-width: 981px) {
+  body {
+    background-color: #FFF; }
+  .page {
+    width: 980px;
+    margin: 0 auto; }
+  .square:not(:last-child) {
+    margin: auto; } }
