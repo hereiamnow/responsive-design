@@ -19,15 +19,16 @@ section, .section {
   justify-content: center;
   align-items: center; }
 
-.content {
-  background-color: #EAEDF0;
-  min-height: 300px; }
-
 /*Dummy content - testing layout overflow for responsive flow*/
 .content-top, .content-bottom {
   background-color: #444444;
   color: #555555;
-  height: 300px; }
+  height: 260px; }
+
+.content, .hero {
+  display: none;
+  background-color: #EAEDF0;
+  min-height: 200px; }
 
 .display-flex {
   display: -webkit-box;
@@ -69,6 +70,7 @@ section, .section {
   margin: auto;
   line-height: 150px;
   text-align: center;
+  position: relative;
   -webkit-flex-basis: 230px;
   -moz-flex-basis: 230px;
   -ms-flex-basis: 230px;
@@ -132,9 +134,9 @@ section, .section {
       border: 1px solid #333333; }
 
 /*Mobile -  When it’s less than 400px*/
-@media only screen and (max-width: 400px) {
+@media only screen and (max-width: 320px) {
   body {
-    background-color: #FFF; }
+    background-color: #333333; }
   .square:not(:last-child) {
     margin-bottom: 20px; }
   .display-flex {
@@ -142,23 +144,25 @@ section, .section {
     padding: 20px;
     flex-direction: column; } }
 
-@media only screen and (min-width: 401px) and (max-width: 741px) {
-  .square:not(:last-child) {
-    margin-bottom: 20px; } }
-
-/* Tablet - When it’s between 401px and 960px */
-@media only screen and (min-width: 401px) and (max-width: 980px) {
-  body {
-    background-color: #FFF; }
-  .square:not(:last-child) {
-    margin-bottom: 7px; } }
+/* When it’s between 401px and 981px */
+@media only screen and (min-width: 401px) and (max-width: 981px) {
+  .square {
+    padding: 5px;
+    margin: auto;
+    line-height: 150px;
+    width: 150px;
+    height: 150px;
+    -webkit-flex-basis: 150px;
+    -moz-flex-basis: 150px;
+    -ms-flex-basis: 150px;
+    flex-basis: 150px; } }
 
 /*Desktop - When it’s greater than 980px wide*/
 @media only screen and (min-width: 981px) {
-  body {
-    background-color: #FFF; }
   .page {
     width: 980px;
     margin: 0 auto; }
   .square:not(:last-child) {
-    margin: auto; } }
+    margin: auto; }
+  .hero {
+    display: block; } }

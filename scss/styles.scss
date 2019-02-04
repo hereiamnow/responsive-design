@@ -10,8 +10,10 @@ $button-red: #E04336;
 $button-green: #4C9B4E;
 $button-blue: #0078A6;
 $button-white: $color-white2;
-$square-width: 230px;
 $page-max-width: 980px;
+$square-lg-width: 230px;
+$square-md-width: 196px;
+$square-sm-width: 150px;
 
 /*set box model to zero*/
 *{
@@ -33,22 +35,23 @@ section, .section{
   justify-content: center;
   align-items:     center;
   }
-.content{
-  background-color: #EAEDF0;
-  min-height:       300px;
-  }
 /*Dummy content - testing layout overflow for responsive flow*/
 .content-top, .content-bottom{
   background-color: #444444;
   color:            #555555;
-  height:           300px;
+  height:           260px;
+  }
+.content, .hero{
+  display:          none;
+  background-color: #EAEDF0;
+  min-height:       200px;
   }
 .display-flex{
   @include flexbox();
   @include flex-direction(row);
   @include flex-wrap(wrap);
-  @include justify-content(space-between); // flex-start | flex-end | center | space-between | space-around
-  @include align-content(center); // flex-start | flex-end | center | space-between | space-around | stretch
+  @include justify-content(space-between);
+  @include align-content(center);
   }
 .display-flex{
   width:       100%;
@@ -61,13 +64,14 @@ section, .section{
   background:  $color-dark-grey;
   border:      1px solid $color-dark-grey;
   padding:     5px;
-  width:       $square-width;
-  height:      $square-width;
+  width:       $square-lg-width;
+  height:      $square-lg-width;
   margin:      auto;
   line-height: 150px;
   text-align:  center;
+  position:    relative;
 
-  @include flex-basis($square-width);
+  @include flex-basis($square-lg-width);
   &.red{
 	background-color: $square-red;
 	border:           1px solid $button-red;
@@ -97,6 +101,7 @@ section, .section{
   text-decoration:             none;
   font-size:                   16px;
   cursor:                      pointer;
+
   &.green{
 	border-radius:    3px;
 	background-color: $button-green;
@@ -139,46 +144,46 @@ section, .section{
 	}
   }
 /*Mobile -  When it’s less than 400px*/
-@media only screen and (max-width: 400px){
+@media only screen and (max-width: 320px){
   body{
-	background-color: $color-white;
+	background-color: $color-dark-grey;
 	}
   .square:not(:last-child){
 	margin-bottom: 20px;
 	}
-
   .display-flex{
 	width:          100%;
 	padding:        20px;
 	flex-direction: column;
 	}
   }
-@media only screen and (min-width: 401px) and (max-width: 741px){
-
+@media only screen and (min-width: 401px) and (max-width: 615px){
   .square:not(:last-child){
-	margin-bottom: 20px;
 	}
-
   }
-/* Tablet - When it’s between 401px and 960px */
-@media only screen and (min-width: 401px) and (max-width: 980px){
-  body{
-	background-color: $color-white;
+/* When it’s between 401px and 981px */
+@media only screen and (min-width: 401px) and (max-width: 981px){
+  .square{
+	padding:     5px;
+	margin:      auto;
+	line-height: 150px;
+	width:       $square-sm-width;
+	height:      $square-sm-width;
+	@include flex-basis($square-sm-width);
 	}
   .square:not(:last-child){
-	margin-bottom: 7px;
 	}
   }
 /*Desktop - When it’s greater than 980px wide*/
 @media only screen and (min-width: 981px){
-  body{
-	background-color: $color-white;
-	}
   .page{
 	width:  $page-max-width;
 	margin: 0 auto;
 	}
   .square:not(:last-child){
 	margin: auto;
+	}
+  .hero{
+	display: block;
 	}
   }
