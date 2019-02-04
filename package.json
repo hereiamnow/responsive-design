@@ -1,0 +1,31 @@
+{
+  "name": "responsive-module",
+  "version": "1.0.0",
+  "description": "Code assignment",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hereiamnow/responsive-design.git"
+  },
+  "keywords": [
+    "sass",
+    "jquery",
+    "gulp"
+  ],
+  "author": "Shawn Miller <hereiamnow@gmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^4.0.0",
+    "gulp-sass": "^4.0.2"
+  },
+  "dependencies": {
+    "browser-sync": "^2.26.3",
+    "gulp-buffer": "0.0.2",
+    "gulp-concat": "^2.6.1",
+    "request": "^2.88.0",
+    "vinyl-source-stream": "^2.0.0"
+  }
+}
